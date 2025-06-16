@@ -76,7 +76,6 @@ if (isTokenExpired()) {
 
 ## API Reference
 
-------------------------------------------------------------------------------------
 | Function                                    | Description                        |
 | ------------------------------------------- | ---------------------------------- |
 | `generateToken(payload, secret, expiresIn)` | Generate a JWT token               |
@@ -87,7 +86,6 @@ if (isTokenExpired()) {
 | `getCurrentUser(secret)`                    | Extract user from token            |
 | `isAuthenticated(secret)`                   | Check if valid token exists        |
 | `isTokenExpired()`                          | Returns `true` if token is expired |
-------------------------------------------------------------------------------------
 ---
 
 ## Browser Compatibility
