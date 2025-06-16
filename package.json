@@ -1,0 +1,13 @@
+{
+  "name": "jwt-user-helper",
+  "version": "1.0.0",
+  "description": "JWT Token manager with local storage and user helpers",
+  "main": "src/index.js",
+  "keywords": ["jwt", "token", "auth", "localstorage", "user"],
+  "author": "Tariq Mehmood",
+  "repository": "https://github.com/TariqMehmood/jwt-user-helper",
+  "license": "MIT",
+  "dependencies": {
+    "jsonwebtoken": "^9.0.0"
+  }
+}
