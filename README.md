@@ -61,7 +61,9 @@ const {
 ---
 
 ### STEP 3: Define a secure secret key
-```const secret = "my_super_secure_secret_123";```
+```js
+const secret = "my_super_secure_secret_123";
+```
 ---
 
 ### STEP 4: Generate token with user payload and 1 hour expiration
