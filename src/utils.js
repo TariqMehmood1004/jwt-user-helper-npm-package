@@ -1,31 +1,42 @@
-export const isBrowser = () => typeof window !== "undefined";
+function isBrowser() {
+  return typeof window !== "undefined" || typeof localStorage !== "undefined";
+}
 
-export const safeLocalStorageSet = (key, value) => {
+function safeLocalStorageSet(key, value) {
   if (!isBrowser()) return;
   localStorage.setItem(key, value);
-};
+}
 
-export const safeLocalStorageGet = (key) => {
+function safeLocalStorageGet(key) {
   if (!isBrowser()) return null;
   return localStorage.getItem(key);
-};
+}
 
-export const safeLocalStorageRemove = (key) => {
+function safeLocalStorageRemove(key) {
   if (!isBrowser()) return;
   localStorage.removeItem(key);
-};
+}
 
-export const getTokenExpiry = (token) => {
+function getTokenExpiry(token) {
   try {
     const base64Payload = token.split(".")[1];
-    const payload = JSON.parse(atob(base64Payload));
+    const payload = JSON.parse(Buffer.from(base64Payload, "base64").toString());
     return payload.exp ? payload.exp * 1000 : null;
   } catch {
     return null;
   }
-};
+}
 
-export const isExpired = (token) => {
+function isExpired(token) {
   const expiry = getTokenExpiry(token);
   return expiry ? Date.now() >= expiry : true;
+}
+
+module.exports = {
+  isBrowser,
+  safeLocalStorageSet,
+  safeLocalStorageGet,
+  safeLocalStorageRemove,
+  getTokenExpiry,
+  isExpired,
 };

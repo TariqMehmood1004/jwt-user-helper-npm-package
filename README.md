@@ -95,7 +95,9 @@ if (isTokenExpired()) {
 
 ---
 
+## Security
+```node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"```
+
 ## License
 
 MIT © [Tariq Mehmood](https://github.com/TariqMehmood1004)
-

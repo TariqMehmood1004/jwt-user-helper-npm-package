@@ -3,11 +3,25 @@
   "version": "1.0.0",
   "description": "JWT Token manager with local storage and user helpers",
   "main": "src/index.js",
-  "keywords": ["jwt", "token", "auth", "localstorage", "user"],
+  "keywords": [
+    "jwt",
+    "token",
+    "auth",
+    "localstorage",
+    "user"
+  ],
   "author": "Tariq Mehmood",
   "repository": "https://github.com/TariqMehmood/jwt-user-helper",
   "license": "MIT",
   "dependencies": {
     "jsonwebtoken": "^9.0.0"
+  },
+  "scripts": {
+    "build": "babel src --out-dir dist"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.27.2",
+    "@babel/core": "^7.27.4",
+    "@babel/preset-env": "^7.27.2"
   }
 }
