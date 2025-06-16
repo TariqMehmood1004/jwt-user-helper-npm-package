@@ -1,4 +1,3 @@
-````markdown
 # jwt-user-helper
 
 A lightweight, browser-friendly utility for handling JWT token generation, verification, storage in `localStorage`, and current user extraction. Designed for React, Next.js, or any frontend JavaScript project.
@@ -102,4 +101,3 @@ if (isTokenExpired()) {
 
 MIT © [Tariq Mehmood](https://github.com/TariqMehmood1004)
 
-```
