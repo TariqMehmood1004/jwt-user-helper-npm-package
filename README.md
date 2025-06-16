@@ -28,48 +28,87 @@ or
 
 ## Usage
 
-### Generate and Save Token
+## Usage in Node.js | Server-side | React | Next.js
 
+### STEP 1: Mock localStorage BEFORE using the library
 ```js
-import { generateToken, saveToken } from 'jwt-user-helper';
-
-const token = generateToken({ user: { id: 1, name: "Tariq" } }, "your-secret-key");
-saveToken(token);
+global.localStorage = {
+  _data: {},
+  setItem(key, value) {
+    this._data[key] = value;
+  },
+  getItem(key) {
+    return this._data[key];
+  },
+  removeItem(key) {
+    delete this._data[key];
+  },
+};
 ```
+---
 
-### Get Current User
-
+### STEP 2: Import the library
 ```js
-import { getCurrentUser } from 'jwt-user-helper';
-
-const user = getCurrentUser("your-secret-key");
-console.log(user); // { id: 1, name: "Tariq" }
+const {
+  generateToken,
+  saveToken,
+  getCurrentUser,
+  isAuthenticated,
+  isTokenExpired,
+  removeToken,
+} = require("jwt-user-helper");
 ```
+---
 
-### Check Authentication
+### STEP 3: Define a secure secret key
+```const secret = "my_super_secure_secret_123";```
+---
 
+### STEP 4: Generate token with user payload and 1 hour expiration
 ```js
-import { isAuthenticated } from 'jwt-user-helper';
-
-const loggedIn = isAuthenticated("your-secret-key");
+const token = generateToken({ user: { id: 123, name: "Tariq" } }, secret, "1h");
+console.log("Generated Token:", token);
 ```
+---
 
-### Logout / Remove Token
+### STEP 5: Save token to localStorage
+```saveToken(token);```
+---
 
+### STEP 6: Get user from stored token
+```console.log("User:", getCurrentUser(secret)); // => { id: 123, name: "Tariq" }```
+---
+
+### STEP 7: Check authentication status
+```console.log("Is Authenticated?", isAuthenticated(secret)); // => true```
+---
+
+### STEP 8: Check if token is expired
+```console.log("Is Token Expired?", isTokenExpired()); // => false```
+---
+
+### STEP 9: Logout (removes token)
 ```js
-import { removeToken } from 'jwt-user-helper';
-
 removeToken();
+console.log("Token Removed:", getCurrentUser(secret)); // => null
 ```
-
-### Check if Token is Expired
-
+---
+## Usage in Browser
 ```js
-import { isTokenExpired } from 'jwt-user-helper';
+import {
+  generateToken,
+  saveToken,
+  getCurrentUser,
+  isAuthenticated,
+  isTokenExpired,
+  removeToken,
+} from "jwt-user-helper";
 
-if (isTokenExpired()) {
-  // Do something, like auto-logout
-}
+const secret = "your_secure_key";
+const token = generateToken({ user: { id: 1, name: "Alice" } }, secret, "1h");
+
+saveToken(token);
+console.log(getCurrentUser(secret)); // { id: 1, name: "Alice" }
 ```
 
 ---

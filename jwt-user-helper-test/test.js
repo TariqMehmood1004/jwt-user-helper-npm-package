@@ -1,3 +1,4 @@
+// STEP 1: Mock localStorage
 // Mock localStorage BEFORE using the library
 global.localStorage = {
   _data: {},
@@ -22,25 +23,26 @@ const {
   removeToken,
 } = require("jwt-user-helper");
 
+// STEP 2:
 // Use a long-lasting and consistent secret
 const secret = "my_super_secure_secret_123";
 
-// Generate token valid for 1 hour
+// STEP 3: Generate token valid for 1 hour
 const token = generateToken({ user: { id: 123, name: "Tariq" } }, secret, "1h");
 console.log("Generated Token:", token);
 
-// Save token
+// STEP 4: Save token
 saveToken(token);
 
-// Get user from token
+// STEP 5: Get user from token
 console.log("User:", getCurrentUser(secret)); // should NOT be null
 
-// Check auth state
+// STEP 6: Check auth state
 console.log("Is Authenticated?", isAuthenticated(secret)); // should be true
 
-// Check token expiry
+// STEP 7: Check token expiry
 console.log("Is Token Expired?", isTokenExpired()); // should be false
 
-// Logout
+// STEP 8: Logout
 removeToken();
 console.log("Token Removed:", getCurrentUser(secret)); // should be null

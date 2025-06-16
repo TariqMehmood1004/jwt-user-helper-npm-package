@@ -1,0 +1,6 @@
+dist
+node_modules
+npm-debug.log
+jwt-user-helper-test
+package-lock.json
+# Ignore all test files
