@@ -74,19 +74,28 @@ console.log("Generated Token:", token);
 ---
 
 ### STEP 5: Save token to localStorage
-```saveToken(token);```
+```js
+saveToken(token);
+console.log("Token Saved:", token);
+```
 ---
 
 ### STEP 6: Get user from stored token
-```console.log("User:", getCurrentUser(secret)); // => { id: 123, name: "Tariq" }```
+```js
+console.log("User:", getCurrentUser(secret)); // => { id: 123, name: "Tariq" }
+```
 ---
 
 ### STEP 7: Check authentication status
-```console.log("Is Authenticated?", isAuthenticated(secret)); // => true```
+```js
+console.log("Is Authenticated?", isAuthenticated(secret)); // => true 
+```
 ---
 
 ### STEP 8: Check if token is expired
-```console.log("Is Token Expired?", isTokenExpired()); // => false```
+```js
+console.log("Is Token Expired?", isTokenExpired()); // => false
+```
 ---
 
 ### STEP 9: Logout (removes token)
