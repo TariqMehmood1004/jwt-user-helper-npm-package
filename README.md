@@ -28,7 +28,7 @@ or
 
 ## Usage
 
-## Usage in Node.js | Server-side | React | Next.js
+### Usage in Node.js | Server-side | React | Next.js
 
 ### STEP 1: Mock localStorage BEFORE using the library
 ```js
@@ -93,7 +93,8 @@ removeToken();
 console.log("Token Removed:", getCurrentUser(secret)); // => null
 ```
 ---
-## Usage in Browser
+
+### Usage in Browser
 ```js
 import {
   generateToken,
